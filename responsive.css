@@ -1,0 +1,76 @@
+@media (max-width: 900px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        /* Handled by JS */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .profile-frame,
+    .profile-placeholder,
+    .glow-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .profile-placeholder i {
+        font-size: 4rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}

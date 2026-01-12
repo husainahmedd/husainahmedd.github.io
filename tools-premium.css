@@ -1,0 +1,108 @@
+/* Premium Tools Section */
+.tech-container {
+    margin-top: 40px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease backwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 31, 61, 0.2) 0%, transparent 70%);
+    /* Red Gradient */
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 31, 61, 0.05);
+    animation: redBorderPulse 2s infinite;
+    /* Red Animated Border */
+    border-color: #ff1f3d;
+    /* Explicit start color */
+}
+
+.tech-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tech-icon {
+    font-size: 2.2rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.tech-card:hover .tech-icon {
+    color: #fff;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px #ff1f3d;
+    /* Red Glow */
+}
+
+.tech-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    z-index: 2;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes redBorderPulse {
+    0% {
+        border-color: #ff1f3d;
+        box-shadow: 0 5px 15px rgba(255, 31, 61, 0.2);
+    }
+
+    50% {
+        border-color: #ff4e6a;
+        /* Lighter red */
+        box-shadow: 0 10px 35px rgba(255, 31, 61, 0.6);
+    }
+
+    100% {
+        border-color: #ff1f3d;
+        box-shadow: 0 5px 15px rgba(255, 31, 61, 0.2);
+    }
+}

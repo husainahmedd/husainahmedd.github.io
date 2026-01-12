@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Husain Ahmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        .blog-header {
+            padding: 150px 0 60px;
+            text-align: center;
+        }
+
+        .blog-title {
+            font-size: 3.5rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .blog-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .empty-state {
+            padding: 100px 0 150px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .empty-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            opacity: 0.2;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .empty-heading {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .empty-text {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 500px;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Husain<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="blog.html" class="nav-link" style="color: var(--primary);">Blog</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="Husain_Ahmed_CV.pdf" download class="btn btn-primary btn-sm">Download CV <i
+                    class="fa-solid fa-download"></i></a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="blog-header">
+            <div class="container">
+                <h1 class="blog-title">Insights & Articles</h1>
+                <p class="blog-desc">Deep dives into SEO strategies, digital marketing trends, and growth hacking.</p>
+            </div>
+        </section>
+
+        <section class="empty-state">
+            <div class="container">
+                <div class="empty-icon">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                </div>
+                <h2 class="empty-heading">No Articles Yet</h2>
+                <p class="empty-text">I'm currently crafting high-value content for you. Stay tuned for upcoming
+                    articles on SEO and Digital Growth.</p>
+
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="brand-logo">Husain Ahmed<span class="dot">.</span></h2>
+                    <p class="brand-desc">Elevating brands through data-driven digital strategies. Let's create your
+                        success story.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/husainahmedd" target="_blank" class="f-social-link"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/husainahmedd/" target="_blank" class="f-social-link"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/husainahmedd/" target="_blank" class="f-social-link"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801788163380" target="_blank" class="f-social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#about">About Me</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Meta Ads</a></li>
+                        <li><a href="#">Content Strategy</a></li>
+                        <li><a href="#">Lead Generation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-solid fa-envelope"></i> husainahmedshisir@gmail.com</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Rajshahi, Bangladesh</li>
+                        <li><span class="status-badge"><span class="dot pulse-green"></span> Online</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; January-2026 Husain Ahmed. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

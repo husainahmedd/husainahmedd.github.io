@@ -1,0 +1,17 @@
+/* Animation Fixes */
+.highlight-badge {
+    display: inline-block;
+    /* Required for transform animations to work */
+}
+
+/* Ensure badges are visible when they slide in */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}

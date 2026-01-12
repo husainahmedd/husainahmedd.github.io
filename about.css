@@ -1,0 +1,211 @@
+/* About Section Styles */
+.about {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Visual Side */
+.about-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-card {
+    width: 100%;
+    aspect-ratio: 1/1.1;
+    position: relative;
+}
+
+.card-glass {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    padding: 10px;
+    /* Space for inner border effect */
+}
+
+/* Image Mode */
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    filter: grayscale(20%) contrast(1.1);
+    /* Cinematic look */
+    transition: filter 0.5s ease;
+}
+
+.card-glass:hover .profile-img {
+    filter: grayscale(0%) contrast(1);
+}
+
+.visual-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 60%);
+    z-index: 1;
+    animation: rotateGlow 10s linear infinite;
+}
+
+/* Floating Badges */
+.floating-badge {
+    position: absolute;
+    background: rgba(15, 15, 18, 0.9);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+.floating-badge i {
+    color: var(--primary);
+}
+
+.floating-badge span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.badge-top {
+    top: 40px;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.badge-bottom {
+    bottom: 40px;
+    left: -20px;
+    animation-delay: 2s;
+}
+
+/* Content Side */
+.about-heading {
+    font-size: 2.8rem;
+    margin: 15px 0 30px;
+    line-height: 1.2;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-text {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.feature-item i {
+    color: var(--primary);
+}
+
+/* New Stats */
+.about-stats-new {
+    display: flex;
+    gap: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.stat-box h3 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.stat-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.btn-about {
+    padding: 15px 40px;
+}
+
+/* Animations */
+@keyframes floatBadge {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .about-features,
+    .about-stats-new {
+        justify-content: center;
+    }
+
+    .about-visual {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

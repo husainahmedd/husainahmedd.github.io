@@ -1,0 +1,443 @@
+/* Selected Works Page Specific Styles */
+
+/* ----------------------------------------
+   1. PAGE HEADER
+---------------------------------------- */
+.page-header {
+    padding: 140px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ----------------------------------------
+   2. CATEGORY FILTER BAR
+---------------------------------------- */
+.filter-bar-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: var(--font-body);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.filter-btn:hover {
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.filter-btn:hover::before {
+    width: 100%;
+}
+
+.filter-btn.active {
+    background: transparent;
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.filter-btn.active::before {
+    width: 100%;
+}
+
+/* ----------------------------------------
+   3. HIGHLIGHT WORKS GRID
+---------------------------------------- */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+/* Reusing and extending project-card from portfolio-premium.css but fine-tuning for this page */
+.work-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-glow);
+    border-color: rgba(255, 31, 61, 0.4);
+}
+
+/* Shine Effect on Hover */
+.work-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.work-card:hover::after {
+    left: 150%;
+    transition: 0.7s ease-in-out;
+}
+
+/* Entry Animation */
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.work-card {
+    opacity: 0;
+    /* Hidden by default for animation */
+    animation: cardEntry 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Staggered Delays for 15 items */
+.work-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.work-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.work-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.work-card:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.work-card:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.work-card:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+.work-card:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.work-card:nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+.work-card:nth-child(9) {
+    animation-delay: 0.5s;
+}
+
+.work-card:nth-child(10) {
+    animation-delay: 0.55s;
+}
+
+.work-card:nth-child(11) {
+    animation-delay: 0.6s;
+}
+
+.work-card:nth-child(12) {
+    animation-delay: 0.65s;
+}
+
+.work-card:nth-child(13) {
+    animation-delay: 0.7s;
+}
+
+.work-card:nth-child(14) {
+    animation-delay: 0.75s;
+}
+
+.work-card:nth-child(15) {
+    animation-delay: 0.8s;
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+/* Visual Header: Typography + Icon System */
+.card-visual {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #15151a, #0a0a0e);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.visual-letter {
+    position: absolute;
+    font-family: var(--font-heading);
+    font-size: 10rem;
+    font-weight: 800;
+    color: #fff;
+    opacity: 0.03;
+    transform: rotate(-15deg) translate(-10px, -10px);
+    transition: transform 0.6s ease;
+    user-select: none;
+    z-index: 0;
+}
+
+.visual-icon {
+    font-size: 3.5rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 15px var(--primary-glow));
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.work-card:hover .visual-letter {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 0.05;
+}
+
+.work-card:hover .visual-icon {
+    transform: scale(1.15) translateY(-5px);
+    color: #fff;
+    filter: drop-shadow(0 0 20px var(--primary));
+    animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1.15) translateY(-5px);
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-5px);
+    }
+
+    100% {
+        transform: scale(1.15) translateY(-5px);
+    }
+}
+
+/* Badges & Metrics */
+.card-badge-top {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.card-metric {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(255, 31, 61, 0.4);
+    z-index: 2;
+}
+
+/* Card Content */
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Hover Reveal Content */
+.hover-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.work-card:hover .hover-details {
+    max-height: 200px;
+    /* Adjust based on content */
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.detail-item i {
+    color: var(--primary);
+    margin-top: 4px;
+    font-size: 0.7rem;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CTA Button in Card */
+.card-cta {
+    margin-top: auto;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.card-cta:hover {
+    gap: 12px;
+    color: #fff;
+}
+
+/* ----------------------------------------
+   4. CTA SECTION
+---------------------------------------- */
+.cta-section {
+    text-align: center;
+    padding: 80px 0 100px;
+}
+
+.cta-heading {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------------
+   5. RESPONSIVE
+---------------------------------------- */
+@media (max-width: 992px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        padding: 100px 0 40px;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    /* On mobile, show details by default or handling hover is tricky. 
+       Let's keep hover logic but ensure it's accessible or maybe just show important bits.
+       For now, standard behavior. */
+}
