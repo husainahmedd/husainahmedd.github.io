@@ -141,6 +141,60 @@ body:before{
 }
 .badge{display:flex;align-items:center;gap:7px}
 .badge b{color:#777;font-size:8px}
+
+.contact-title{
+  display:flex;align-items:center;gap:10px;margin:20px 0 9px;
+  color:#626262;font:600 8px "Space Grotesk";letter-spacing:.17em;text-transform:uppercase;
+}
+.contact-title:after{content:"";height:1px;flex:1;background:var(--line)}
+.contact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:9px;
+}
+.contact-card{
+  min-width:0;height:57px;border:1px solid var(--line);border-radius:15px;background:#0c0c0d;
+  color:#d5d5d5;text-decoration:none;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;padding:6px;cursor:pointer;
+  text-align:center;font-family:"DM Sans";
+  transition:transform .3s ease,border-color .3s ease,background .3s ease;
+}
+.contact-card:hover{
+  transform:translateY(-4px);border-color:rgba(255,48,69,.48);
+  background:#111112;
+}
+.contact-icon{
+  width:24px;height:24px;display:grid;place-items:center;
+  background:transparent;color:#fff;font-size:19px;line-height:1;flex:none;
+}
+.contact-icon svg{width:21px;height:21px;display:block}.contact-card b{
+  display:block;font-size:7px;color:#777;font-weight:600;letter-spacing:.02em;
+  white-space:nowrap;text-transform:uppercase;
+}
+.contact-card small{display:none}
+.share-panel{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px) scale(.96);
+  width:min(390px,calc(100vw - 28px));padding:14px;border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;background:rgba(13,13,14,.96);backdrop-filter:blur(20px);
+  box-shadow:0 25px 70px rgba(0,0,0,.65);opacity:0;pointer-events:none;
+  transition:.3s;z-index:20;
+}
+.share-panel.show{opacity:1;pointer-events:auto;transform:translate(-50%,0) scale(1)}
+.share-panel-head{display:flex;justify-content:space-between;align-items:center;font:600 11px "Space Grotesk";margin-bottom:10px}
+.share-panel-head button{border:0;background:none;color:#777;font-size:22px;cursor:pointer}
+.share-options{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.share-options a,.share-options button{
+  min-height:40px;border:1px solid var(--line);border-radius:10px;background:#111112;
+  color:#bbb;text-decoration:none;display:grid;place-items:center;font:600 9px "DM Sans";cursor:pointer;
+}
+.share-options a:hover,.share-options button:hover{border-color:rgba(255,48,69,.45);color:#fff}
+@media (max-width:600px){
+  .contact-grid{grid-template-columns:repeat(3,1fr);gap:7px}
+  .contact-card{height:54px;padding:5px;gap:2px;border-radius:12px}
+  .contact-icon{width:24px;height:24px;font-size:18px}
+  .contact-icon svg{width:21px;height:21px;display:block}.contact-card b{font-size:6.5px}
+  .actions{grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+  .action{height:42px;font-size:8px}
+}
+
 @media (max-width:600px){
   body{
     padding:12px;
@@ -289,9 +343,44 @@ body:before{
   </a>
 </section>
 
+
+<div class="contact-title">Work With Me</div>
+<section class="contact-grid">
+  <a class="contact-card call" href="tel:+8801788163380" class="contact-card call"><span class="contact-icon">☎</span><span><b>Call Me</b><small>+8801788163380</small></span>
+  </a>
+
+  <a class="contact-card email" href="mailto:husainahmedshisir@gmal.com?subject=Project%20Inquiry%20-%20Husain%20Ahmed&body=Hello%20Husain,%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%20details:%0A">
+    <span class="contact-icon">@</span>
+    <span><b>Email Me</b><small>Discuss a project</small></span>
+  </a>
+
+  <a class="contact-card meeting" href="mailto:husainahmedshisir@gmal.com?subject=Meeting%20Request%20-%20Husain%20Ahmed&body=Hello Husain,%0A%0AI would like to book a meeting to discuss a project.%0A%0APreferred date/time:%0AProject/service:%0AProject details:%0A%0AThank you."><span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="17" rx="3"></rect>
+        <path d="M16 2v4M8 2v4M3 9h18"></path>
+        <path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"></path>
+      </svg>
+    </span><span><b>Book a Meeting</b><small>Request a time</small></span></a>
+</section>
+
+<div class="share-panel" id="sharePanel">
+  <div class="share-panel-head">
+    <span>Share Profile</span>
+    <button onclick="closeShare()" aria-label="Close">×</button>
+  </div>
+  <div class="share-options">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhusainahmedd.github.io%2Fprofile" target="_blank">Facebook</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fhusainahmedd.github.io%2Fprofile" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/?text=Husain%20Ahmed%20%E2%80%94%20SEO%20%26%20Meta%20Ads%20Expert%20%7C%20https%3A%2F%2Fhusainahmedd.github.io%2Fprofile" target="_blank">WhatsApp</a>
+    <button onclick="copyProfileLink()">Copy Link</button>
+  </div>
+</div>
+
+
+
 <section class="actions">
   <button class="action primary" onclick="window.open('https://husainahmedd.github.io','_blank')">VIEW PORTFOLIO ↗</button>
-  <button class="action" onclick="shareProfile()">SHARE PROFILE</button>
+  <button class="action" onclick="shareProfile()">SHARE PROFILE ↗</button>
 </section>
 
 <footer class="footer">
@@ -303,13 +392,30 @@ body:before{
 
 <script>
 function shareProfile(){
-  const data={title:'Husain Ahmed — Profile',text:'SEO Specialist · Meta Ads Expert',url:'https://husainahmedd.github.io/profile'};
-  if(navigator.share){navigator.share(data)}
-  else{
-    navigator.clipboard?.writeText('https://husainahmedd.github.io/profile');
-    const btn=document.querySelectorAll('.action')[1], old=btn.textContent;
-    btn.textContent='LINK COPIED ✓';
-    setTimeout(()=>btn.textContent=old,1600);
+  const profileUrl='https://husainahmedd.github.io/profile';
+  const data={
+    title:'Husain Ahmed — Digital Growth',
+    text:'SEO Specialist · Meta Ads Expert | View my professional profile:',
+    url:profileUrl
+  };
+  if(navigator.share){
+    navigator.share(data).catch(()=>{});
+  }else{
+    document.getElementById('sharePanel').classList.add('show');
+  }
+}
+function closeShare(){
+  document.getElementById('sharePanel').classList.remove('show');
+}
+function copyProfileLink(){
+  const url='https://husainahmedd.github.io/profile';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>{
+      const btn=document.querySelector('.share-options button');
+      const old=btn.textContent;
+      btn.textContent='Copied ✓';
+      setTimeout(()=>btn.textContent=old,1500);
+    });
   }
 }
 </script>
